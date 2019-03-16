@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Author" />
+  <title>Title</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+  </style>
+  <style>
+    body {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 11pt;
+    }
+
+    h1.title {
+        display: none;
+    }
+
+    img {
+        border-radius: 2px;
+        border: 2px solid black;
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    pre {
+        background: rgba(255, 205, 0, 0.2);
+        border-radius: 4px;
+        border: 2px solid rgba(255, 205, 0, 0);
+        display: block;
+        font-family: "Lucida Console", Monaco, monospace;
+        margin: 14px 0px;
+        padding: 4px;
+    }
+
+    code {
+        background: rgba(255, 205, 0, 0.4);
+        border-radius: 2px;
+        font-size: 10pt;
+        padding: 0px 2px;
+    }
+
+    div.code > table {
+        width: 100%;
+    }
+    div.code > table > tbody > tr > td {
+        border: 0px;
+    }
+    div.code > table > tbody > tr > td:nth-child(1) {
+        width: 30px;
+        text-align: right;
+    }
+
+    pre > code {
+        background: rgba(0, 0, 0, 0);
+        padding: 0;
+        white-space: pre-wrap !important;
+        word-wrap: break-word;
+    }
+
+    table {
+        background: rgba(255, 205, 0, 0.2);
+        border-collapse: collapse;
+        border-radius: 4px;
+        border: 2px solid rgba(255, 205, 0, 0);
+        margin: 14px 0px;
+        padding: 4px;
+    }
+
+    th {
+        background: rgba(255, 205, 0, 0.2);
+    }
+
+    tr.even {
+        background: rgba(255, 205, 0, 0.2);
+    }
+
+    th, td {
+        border: 1px solid rgb(255, 205, 0);
+        padding: 2px 4px;
+    }
+
+    div.nb {
+        background: rgba(255, 205, 0, 0.2);
+        border-radius: 4px;
+        border: 2px solid rgba(255, 205, 0, 1);
+        display: block;
+        margin: 14px 0px;
+        padding: 0px 14px 0px 14px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .biggest {
+        font-size: 44pt;
+    }
+
+    .bigger {
+        font-size: 36pt;
+    }
+
+    .big {
+        font-size: 24pt;
+    }
+
+    .full-page {
+        page-break-after: always;
+    }
+
+    .toc ul li {
+        list-style-type: none;
+        padding: 6px 0px;
+    }
+
+    .toc a {
+        text-decoration: none;
+    }
+
+    .hl {
+        background: rgb(255, 205, 0);
+        font-weight: bold;
+    }
+
+    .ln {
+        color: darkgoldenrod;
+    }
+
+    @page {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 10pt;
+        margin: 10%;
+        /* A3 */
+        size: 297mm 420mm;
+
+        @top-left {
+            content: "Author";
+        }
+
+        @top-center {
+            content: "";
+        }
+
+        @top-right {
+            content: "Designation";
+        }
+
+        @bottom-left {
+            content: "Title";
+        }
+
+        @bottom-center {
+            content: "";
+        }
+
+        @bottom-right {
+            content: "Page " counter(page);
+        }
+    }
+  </style>
+</head>
+<body>
+<div class="center full-page">
+<p class="biggest"><br><br><br>Author</p>
+<p class="big">Designation</p>
+<p class="bigger"><br><br><br>Title</p>
+<p class="big">Subtitle<br><br><br><br><br></p>
+<p>prepared for</p>
+<p class="bigger">Audience<br><br></p>
+<p>yyyy-mm-dd</p>
+</div>
+<div class="toc full-page">
+<nav id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#highlight-examples">Highlight examples</a><ul>
+<li><a href="#highlighting-specific-words">Highlighting specific words</a></li>
+<li><a href="#notes-warnings">Notes, warnings</a></li>
+</ul></li>
+<li><a href="#using-anchors">Using anchors</a></li>
+<li><a href="#creating-tables">Creating tables</a></li>
+<li><a href="#including-images">Including images</a></li>
+<li><a href="#including-file-contents">Including file contents</a><ul>
+<li><a href="#example.sh">example.sh</a></li>
+<li><a href="#example.py">example.py</a></li>
+<li><a href="#including-specific-lines-from-files">Including specific lines from files</a></li>
+<li><a href="#including-line-numbers">Including line numbers</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#chapter-1">Chapter 1</a></li>
+<li><a href="#appendix">Appendix</a></li>
+</ul>
+</nav>
+</div>
+<h1 id="introduction">Introduction</h1>
+<h2 id="highlight-examples">Highlight examples</h2>
+<p><strong>Plaintext</strong></p>
+<pre><code>Pre-formatted plaintext.</code></pre>
+<p><strong>Bash</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="bu">echo</span> <span class="st">&quot;Pre-formatted inline bash script.&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 0</a></code></pre></div>
+<p><strong>Python</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="cf">if</span> <span class="bu">print</span>(<span class="st">&#39;Pre-formatted inline </span><span class="sc">{}</span><span class="st"> script.&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;python&#39;</span>)):</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="cf">return</span></a></code></pre></div>
+<h3 id="highlighting-specific-words">Highlighting specific words</h3>
+<p>To highlight specific words, use <code>&lt;span class=&quot;hl&quot;&gt;text&lt;/span&gt;</code>, as such:<br />
+Let’s <span class="hl">highlight</span> the word <span class="hl">highlight</span>.</p>
+<pre><code>It can even be made to work within <span class="hl">pre-formatted</span> blocks!</code></pre>
+<p>As well as <code>inline <span class="hl">pre-formatted</span> fields</code>!</p>
+<h3 id="notes-warnings">Notes, warnings</h3>
+<div class="nb">
+<p><strong>Please Note</strong>: this is some <span class="hl">important</span> stuff!</p>
+</div>
+<h2 id="using-anchors">Using anchors</h2>
+<p>These are local hyperlinks to the examples found under <a href="#including-file-contents">Including file contents</a>:</p>
+<ul>
+<li><a href="#example.sh">example.sh</a></li>
+<li><a href="#example.py">example.py</a></li>
+</ul>
+<h2 id="creating-tables">Creating tables</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Header 1</th>
+<th>Header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>some</td>
+<td>stuff</td>
+</tr>
+<tr class="even">
+<td>more</td>
+<td><span class="hl">highlights</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header 1</th>
+<th style="text-align: center;">Header 2</th>
+<th style="text-align: right;">Header 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">left</td>
+<td style="text-align: center;">center</td>
+<td style="text-align: right;">right</td>
+</tr>
+</tbody>
+</table>
+<h2 id="including-images">Including images</h2>
+<p><img src="static/img/lorem.jpg" alt="Handwriting" /> <em>Handwriting</em>, by Andrew Allingham, sourced from <a href="https://www.flickr.com/photos/aallingh/8197626825" class="uri">https://www.flickr.com/photos/aallingh/8197626825</a> and shared under <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>.</p>
+<h2 id="including-file-contents">Including file contents</h2>
+<h3 id="example.sh">example.sh</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="co">#! /bin/bash</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="bu">echo</span> <span class="st">&quot;Shell script example&quot;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="bu">exit</span> 0</a></code></pre></div>
+<h3 id="example.py">example.py</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="co">#! /usr/bin/python3</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="bu">print</span>(<span class="st">&#39;Python example&#39;</span>)</a></code></pre></div>
+<h3 id="including-specific-lines-from-files">Including specific lines from files</h3>
+<p><strong>The line after line 9.</strong></p>
+<pre><code>...
+line 10
+...</code></pre>
+<p><strong>The lines after lines 1, 3, and 5.</strong></p>
+<pre><code>...
+line 2
+...
+line 4
+...
+line 6
+...</code></pre>
+<!-- Take up all remaining space in this page and start the next section in a new page -->
+<div class="full-page">
+
+</div>
+<p><strong>The lines after line 7 up to, and including, line 10,</strong><br />
+<strong>and the lines after line 21 up to, and including, line 24.</strong></p>
+<pre><code>...
+line 8
+line 9
+line 10
+...
+line 22
+line 23
+line 24
+...</code></pre>
+<p><strong>All lines after line 26.</strong></p>
+<pre><code>...
+line 27
+line 28
+line 29
+line 30</code></pre>
+<p><strong>All lines before, and including, line 4.</strong></p>
+<pre><code>line 1
+line 2
+line 3
+line 4
+...</code></pre>
+<h3 id="including-line-numbers">Including line numbers</h3>
+<strong>The lines after line 7 up to, and including, line 10,</strong><br />
+<strong>and the lines after line 21 up to, and including, line 24.</strong>
+<div class="code">
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><span class="ln">8</span></td>
+<td>line 8</td>
+</tr>
+<tr class="odd">
+<td><span class="ln">9</span></td>
+<td>line 9</td>
+</tr>
+<tr class="even">
+<td><span class="ln">10</span></td>
+<td>line 10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><span class="ln">22</span></td>
+<td>line 22</td>
+</tr>
+<tr class="odd">
+<td><span class="ln">23</span></td>
+<td>line 23</td>
+</tr>
+<tr class="even">
+<td><span class="ln">24</span></td>
+<td>line 24</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>All lines after line 26.</strong>
+<div class="code">
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><span class="ln">27</span></td>
+<td>line 27</td>
+</tr>
+<tr class="odd">
+<td><span class="ln">28</span></td>
+<td>line 28</td>
+</tr>
+<tr class="even">
+<td><span class="ln">29</span></td>
+<td>line 29</td>
+</tr>
+<tr class="odd">
+<td><span class="ln">30</span></td>
+<td>line 30</td>
+</tr>
+<tr class="even">
+<td><span class="ln">31</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>All lines before, and including, line 4.</strong>
+<div class="code">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="ln">1</span></td>
+<td>line 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="ln">2</span></td>
+<td>line 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="ln">3</span></td>
+<td>line 3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="ln">4</span></td>
+<td>line 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"></td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Take up all remaining space in this page and start the next section in a new page -->
+<div class="full-page">
+
+</div>
+<h1 id="chapter-1">Chapter 1</h1>
+<p>Laboriosam laudantium vitae nobis id libero. Non laboriosam est animi sint provident voluptas aspernatur nihil. Exercitationem eius ad facere aliquid commodi impedit sit eaque. Voluptatem ut dignissimos et repellendus voluptas. Vel et repellat doloribus autem voluptas adipisci sit.</p>
+<!-- Take up all remaining space in this page and start the next section in a new page -->
+<div class="full-page">
+
+</div>
+<h1 id="appendix">Appendix</h1>
+<p>Laboriosam laudantium vitae nobis id libero. Non laboriosam est animi sint provident voluptas aspernatur nihil. Exercitationem eius ad facere aliquid commodi impedit sit eaque. Voluptatem ut dignissimos et repellendus voluptas. Vel et repellat doloribus autem voluptas adipisci sit.</p>
+</body>
+</html>

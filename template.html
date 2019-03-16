@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+$if(quotes)$
+      q { quotes: "“" "”" "‘" "’"; }
+$endif$
+  </style>
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+  <style>
+    body {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 11pt;
+    }
+
+    h1.title {
+        display: none;
+    }
+
+    img {
+        border-radius: 2px;
+        border: 2px solid black;
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    pre {
+        background: rgba(255, 205, 0, 0.2);
+        border-radius: 4px;
+        border: 2px solid rgba(255, 205, 0, 0);
+        display: block;
+        font-family: "Lucida Console", Monaco, monospace;
+        margin: 14px 0px;
+        padding: 4px;
+    }
+
+    code {
+        background: rgba(255, 205, 0, 0.4);
+        border-radius: 2px;
+        font-size: 10pt;
+        padding: 0px 2px;
+    }
+
+    div.code > table {
+        width: 100%;
+    }
+    div.code > table > tbody > tr > td {
+        border: 0px;
+    }
+    div.code > table > tbody > tr > td:nth-child(1) {
+        width: 30px;
+        text-align: right;
+    }
+
+    pre > code {
+        background: rgba(0, 0, 0, 0);
+        padding: 0;
+        white-space: pre-wrap !important;
+        word-wrap: break-word;
+    }
+
+    table {
+        background: rgba(255, 205, 0, 0.2);
+        border-collapse: collapse;
+        border-radius: 4px;
+        border: 2px solid rgba(255, 205, 0, 0);
+        margin: 14px 0px;
+        padding: 4px;
+    }
+
+    th {
+        background: rgba(255, 205, 0, 0.2);
+    }
+
+    tr.even {
+        background: rgba(255, 205, 0, 0.2);
+    }
+
+    th, td {
+        border: 1px solid rgb(255, 205, 0);
+        padding: 2px 4px;
+    }
+
+    div.nb {
+        background: rgba(255, 205, 0, 0.2);
+        border-radius: 4px;
+        border: 2px solid rgba(255, 205, 0, 1);
+        display: block;
+        margin: 14px 0px;
+        padding: 0px 14px 0px 14px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .biggest {
+        font-size: 44pt;
+    }
+
+    .bigger {
+        font-size: 36pt;
+    }
+
+    .big {
+        font-size: 24pt;
+    }
+
+    .full-page {
+        page-break-after: always;
+    }
+
+    .toc ul li {
+        list-style-type: none;
+        padding: 6px 0px;
+    }
+
+    .toc a {
+        text-decoration: none;
+    }
+
+    .hl {
+        background: rgb(255, 205, 0);
+        font-weight: bold;
+    }
+
+    .ln {
+        color: darkgoldenrod;
+    }
+
+    @page {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 10pt;
+        margin: 10%;
+        /* A3 */
+        size: 297mm 420mm;
+
+        @top-left {
+            content: "$author$";
+        }
+
+        @top-center {
+            content: "";
+        }
+
+        @top-right {
+            content: "$designation$";
+        }
+
+        @bottom-left {
+            content: "$title$";
+        }
+
+        @bottom-center {
+            content: "";
+        }
+
+        @bottom-right {
+            content: "Page " counter(page);
+        }
+    }
+  </style>
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+<div class="center full-page">
+<p class="biggest"><br><br><br>$author$</p>
+<p class="big">$designation$</p>
+<p class="bigger"><br><br><br>$title$</p>
+<p class="big">$subtitle$<br><br><br><br><br></p>
+<p>prepared for</p>
+<p class="bigger">$audience$<br><br></p>
+<p>$date$</p>
+</div>
+<div class="toc full-page">
+<nav id="$idprefix$TOC">
+$table-of-contents$
+</nav>
+</div>
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>
