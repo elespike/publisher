@@ -38,10 +38,10 @@ export PATH=$PATH:$HOME/.local/bin
 1. `git clone https://github.com/elespike/publisher`
 2. `cd publisher`
 3. Edit the `metadata.yaml` file with your desired values, leaving unused ones empty.
-4. Have a look at the included examples and use them to guide your content creation.
-  a. Create as many markdown files as you need; files whose name starts with `_` will be ignored by `publisher.py`.
+4. Have a look at the included examples and use them to guide your content creation.  
+  a. Create as many markdown files as you need; files whose name starts with `_` will be ignored by `publisher.py`.  
   b. File names should begin with a numerical value, and will be compiled into the final document in numerical order.
-5. When ready, run `python3 ./publisher.py`!
+5. When ready, run `python3 ./publisher.py`!  
   a. Have a look at the files created by the script: `publisher.pdf` and `publisher.html`.
 
 ## Feeling adventurous?
