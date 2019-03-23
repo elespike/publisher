@@ -8,7 +8,7 @@ Have a look at the following files in this directory:
 
 ## Prerequisites
 
-Tested on Debian:
+Tested on Debian Buster with `pandoc 2.2.1` and `python 3.7`:
 ```bash
 apt-get install pandoc
 
