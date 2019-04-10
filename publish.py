@@ -40,7 +40,7 @@ for m in finditer(inclusion_pattern, report):
     except ValueError:
         fpath = m.group(1)
 
-    with open('{}/{}'.format(my_full_path, fpath)) as f:
+    with open(F'{my_full_path}/{fpath}') as f:
         flines = f.readlines()
 
     if slices:
@@ -76,13 +76,13 @@ for m in finditer(inclusion_pattern, report):
     else: # if not slices, include the entire file
         include = ''.join(flines)
 
-    report = sub(inclusion_pattern, repr(include.strip())[1:-1], report, count=1)
+    report = sub(inclusion_pattern, include.strip(), report, count=1)
 
 report_file = F'{my_full_path}/{my_dir_name}.md'
 with open(report_file, 'w') as f:
     f.write(report)
 
-output =  'pandoc -f markdown -t html5+smart+yaml_metadata_block ' \
+output =  'pandoc -f markdown -t html5+yaml_metadata_block ' \
        + F'-s --toc --toc-depth 3 --highlight-style kate --template={my_full_path}/template.html ' \
        + F'-o {my_full_path}/{my_dir_name}.html {report_file} {my_full_path}/metadata.yaml'
 cc(output.split(' '))
