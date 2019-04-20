@@ -76,7 +76,7 @@ for m in finditer(inclusion_pattern, report):
     else: # if not slices, include the entire file
         include = ''.join(flines)
 
-    report = sub(inclusion_pattern, include.strip(), report, count=1)
+    report = sub(inclusion_pattern, include.strip().encode('unicode_escape').decode(), report, count=1)
 
 report_file = F'{my_full_path}/{my_dir_name}.md'
 with open(report_file, 'w') as f:
