@@ -4,8 +4,10 @@ from re import finditer, sub
 from os import listdir , path
 from subprocess import check_call as cc
 
+
 my_full_path = path.dirname (path.abspath(__file__))
 my_dir_name  = path.basename(my_full_path)
+
 
 def get_slice(s):
     if ':' in s:
@@ -17,13 +19,19 @@ def get_slice(s):
             end = None
     return start, end
 
-def number_lines(lines):
-    numbered_lines = list()
-    for i, l in enumerate(lines):
-        line_number = F'<span class="ln">{i + 1}</span>'
-        line_number = ' ' * (30 - len(line_number)) + line_number
-        numbered_lines.append(F'{line_number} {l}')
-    return numbered_lines
+def get_table_rows(numbered_lines):
+    table_rows = list()
+    for i, l in numbered_lines:
+        tr_class = ''
+        if len(table_rows) % 2 != 0:
+            tr_class = ' class="even"'
+
+        line_number = F'<td><pre>{i + 1}</pre></td>'
+        if i == -1: # it's an ellipsis
+            line_number = '<td></td>'
+
+        table_rows.append(F'<tr{tr_class}>{line_number}<td><pre>{l}</pre></td></tr>')
+    return table_rows
 
 report = ''
 chapters = [chapter for chapter in listdir(my_full_path) if chapter.endswith('.md') and chapter.split('_')[0].isnumeric()]
@@ -44,7 +52,7 @@ for m in finditer(inclusion_pattern, report):
         flines = f.readlines()
 
     if slices:
-        ellipsis = '...\n'
+        ellipsis = '\u2026'
         prepend  = ''
         append   = ''
         include  = list()
@@ -55,28 +63,30 @@ for m in finditer(inclusion_pattern, report):
         slices = slices.replace(',', ' ')
         slices = slices.split()
 
-        if make_table:
-            flines   = number_lines(flines)
-            ellipsis = ' ' * 31 + ellipsis
-
         for i, s in enumerate(slices):
             start, end = get_slice(s)
             if i == 0 and start is not None:
-                prepend = ellipsis
-            include.append(''.join(flines[start:end]))
-            if i == len(slices) - 1 and end is not None:
-                append = ellipsis
+                include.append((-1, ellipsis))
 
-        include = prepend + ellipsis.join(include) + append
+            lines = [l.rstrip() for l in flines[start:end]]
+            for line_index, line in enumerate(lines):
+                include.append(((start or 0) + line_index, line))
+            include.append((-1, ellipsis))
+
+            if i == len(slices) - 1 and end is None and include:
+                include.pop(-1)
 
         if make_table:
-            table_delimiter = '-' * 30 + ' ---\n'
-            include = F'<div class="code">\n\n{table_delimiter}{include}{table_delimiter}\n</div>'
+            include = '\n'.join(get_table_rows(include))
+            include = F'<div class="code">\n<table><tbody>\n{include}</tbody></table>\n</div>'
+        else:
+            include = '\n'.join([v for i, v in include])
 
     else: # if not slices, include the entire file
         include = ''.join(flines)
 
-    report = sub(inclusion_pattern, include.strip().encode('unicode_escape').decode(), report, count=1)
+    report = sub(inclusion_pattern, include.strip(), report, count=1)
+
 
 report_file = F'{my_full_path}/{my_dir_name}.md'
 with open(report_file, 'w') as f:

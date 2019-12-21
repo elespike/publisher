@@ -63,6 +63,9 @@ $endif$
         padding: 0px 2px;
     }
 
+    div.code {
+        font-family: "Lucida Console", Monaco, monospace;
+    }
     div.code > table {
         width: 100%;
     }
@@ -70,8 +73,16 @@ $endif$
         border: 0px;
     }
     div.code > table > tbody > tr > td:nth-child(1) {
-        width: 30px;
+        border-right: 2px solid rgb(255, 205, 0);
+        color: darkgoldenrod;
         text-align: right;
+        width: 30px;
+    }
+    div.code > table > tbody > tr > td > pre {
+        background: rgba(0, 0, 0, 0);
+        border: 0px;
+        margin: 0px;
+        padding: 0px;
     }
 
     pre > code {
@@ -144,10 +155,6 @@ $endif$
     .hl {
         background: rgb(255, 205, 0);
         font-weight: bold;
-    }
-
-    .ln {
-        color: darkgoldenrod;
     }
 
     @page {
