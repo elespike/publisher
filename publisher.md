@@ -76,21 +76,21 @@ print('Python example')
 ### Including specific lines from files
 **The line after line 9.**
 ```
-...
+…
 line 10
-...
+…
 ```
 
 
 **The lines after lines 1, 3, and 5.**
 ```
-...
+…
 line 2
-...
+…
 line 4
-...
+…
 line 6
-...
+…
 ```
 
 <!-- Take up all remaining space in this page and start the next section in a new page -->
@@ -99,24 +99,25 @@ line 6
 **The lines after line 7 up to, and including, line 10,**  
 **and the lines after line 21 up to, and including, line 24.**
 ```
-...
+…
 line 8
 line 9
 line 10
-...
+…
 line 22
 line 23
 line 24
-...
+…
 ```
 
 **All lines after line 26.**
 ```
-...
+…
 line 27
 line 28
 line 29
 line 30
+
 ```
 
 **All lines before, and including, line 4.**
@@ -125,53 +126,50 @@ line 1
 line 2
 line 3
 line 4
-...
+…
 ```
 
 ### Including line numbers
 **The lines after line 7 up to, and including, line 10,**  
 **and the lines after line 21 up to, and including, line 24.**
 <div class="code">
-
------------------------------- ---
-                               ...
-     <span class="ln">8</span> line 8
-     <span class="ln">9</span> line 9
-    <span class="ln">10</span> line 10
-                               ...
-    <span class="ln">22</span> line 22
-    <span class="ln">23</span> line 23
-    <span class="ln">24</span> line 24
-                               ...
------------------------------- ---
-
+<table><tbody>
+<tr><td></td><td><pre  ><code >…</code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb2p-8" href="#cb2p-8" title="8">8</a></td><td><pre  ><code >line 8  </code></pre></td></tr>
+<tr><td><a class="sourceLine" id="cb2p-9" href="#cb2p-9" title="9">9</a></td><td><pre  ><code >line 9  </code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb2p-10" href="#cb2p-10" title="10">10</a></td><td><pre  ><code >line 10</code></pre></td></tr>
+<tr><td></td><td><pre  ><code >…</code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb2p-22" href="#cb2p-22" title="22">22</a></td><td><pre  ><code >line 22  </code></pre></td></tr>
+<tr><td><a class="sourceLine" id="cb2p-23" href="#cb2p-23" title="23">23</a></td><td><pre  ><code >line 23  </code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb2p-24" href="#cb2p-24" title="24">24</a></td><td><pre  ><code >line 24  </code></pre></td></tr>
+<tr><td></td><td><pre  ><code >…</code></pre></td></tr></tbody></table>
 </div>
 
 **All lines after line 26.**
 <div class="code">
-
------------------------------- ---
-                               ...
-    <span class="ln">27</span> line 27
-    <span class="ln">28</span> line 28
-    <span class="ln">29</span> line 29
-    <span class="ln">30</span> line 30
-    <span class="ln">31</span> 
------------------------------- ---
-
+<table><tbody>
+<tr><td></td><td><pre  ><code >…</code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb3p-27" href="#cb3p-27" title="27">27</a></td><td><pre  ><code >line 27  </code></pre></td></tr>
+<tr><td><a class="sourceLine" id="cb3p-28" href="#cb3p-28" title="28">28</a></td><td><pre  ><code >line 28  </code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb3p-29" href="#cb3p-29" title="29">29</a></td><td><pre  ><code >line 29  </code></pre></td></tr>
+<tr><td><a class="sourceLine" id="cb3p-30" href="#cb3p-30" title="30">30</a></td><td><pre  ><code >line 30</code></pre></td></tr></tbody></table>
 </div>
 
 **All lines before, and including, line 4.**
 <div class="code">
+<table><tbody>
+<tr><td><a class="sourceLine" id="cb4p-1" href="#cb4p-1" title="1">1</a></td><td><pre  ><code >line 1  </code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb4p-2" href="#cb4p-2" title="2">2</a></td><td><pre  ><code >line 2  </code></pre></td></tr>
+<tr><td><a class="sourceLine" id="cb4p-3" href="#cb4p-3" title="3">3</a></td><td><pre  ><code >line 3  </code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb4p-4" href="#cb4p-4" title="4">4</a></td><td><pre  ><code >line 4  </code></pre></td></tr>
+<tr><td></td><td><pre  ><code >…</code></pre></td></tr></tbody></table>
+</div>
 
------------------------------- ---
-     <span class="ln">1</span> line 1
-     <span class="ln">2</span> line 2
-     <span class="ln">3</span> line 3
-     <span class="ln">4</span> line 4
-                               ...
------------------------------- ---
-
+**With syntax highlighting**
+<div class="code">
+<table><tbody>
+<tr><td></td><td><pre  class="python"><code class="python">…</code></pre></td></tr>
+<tr class="even"><td><a class="sourceLine" id="cb1p-3" href="#cb1p-3" title="3">3</a></td><td><pre  class="python"><code class="python"><span class="bu">print</span>(<span class="st">&#39;Python example&#39;</span>)</code></pre></td></tr></tbody></table>
 </div>
 
 <!-- Take up all remaining space in this page and start the next section in a new page -->

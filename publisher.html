@@ -113,22 +113,50 @@ code span.wa { color: #bf0303; } /* Warning */
         padding: 0px 2px;
     }
 
+    div.code {
+        font-family: "Lucida Console", Monaco, monospace;
+    }
+
     div.code > table {
         width: 100%;
     }
+
+    div.code > table > tbody > tr:hover {
+        background: rgba(103, 73, 112, 0.2);
+    }
+
     div.code > table > tbody > tr > td {
         border: 0px;
     }
     div.code > table > tbody > tr > td:nth-child(1) {
-        width: 30px;
+        border-right: 2px solid rgb(255, 205, 0);
+        color: darkgoldenrod;
         text-align: right;
+        user-select: none;
+        width: 30px;
+    }
+
+    div.code > table > tbody > tr:hover > td:nth-child(1) {
+        text-decoration: underline;
+    }
+
+    div.code > table > tbody > tr > td > pre {
+        background: rgba(255, 205, 0, 0);
+        border: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    div.code > table > tbody > tr > td > a.sourceLine {
+        display: block;
+        pointer-events: auto;
     }
 
     pre > code {
-        background: rgba(0, 0, 0, 0);
+        background: rgba(255, 205, 0, 0);
         padding: 0;
         white-space: pre-wrap !important;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     table {
@@ -194,10 +222,6 @@ code span.wa { color: #bf0303; } /* Warning */
     .hl {
         background: rgb(255, 205, 0);
         font-weight: bold;
-    }
-
-    .ln {
-        color: darkgoldenrod;
     }
 
     @page {
@@ -340,85 +364,119 @@ Let’s <span class="hl">highlight</span> the word <span class="hl">highlight</s
 <a class="sourceLine" id="cb5-3" title="3"><span class="bu">print</span>(<span class="st">&#39;Python example&#39;</span>)</a></code></pre></div>
 <h3 id="including-specific-lines-from-files">Including specific lines from files</h3>
 <p><strong>The line after line 9.</strong></p>
-<pre><code>...
+<pre><code>…
 line 10
-...</code></pre>
+…</code></pre>
 <p><strong>The lines after lines 1, 3, and 5.</strong></p>
-<pre><code>...
+<pre><code>…
 line 2
-...
+…
 line 4
-...
+…
 line 6
-...</code></pre>
+…</code></pre>
 <!-- Take up all remaining space in this page and start the next section in a new page -->
 <div class="full-page">
 
 </div>
 <p><strong>The lines after line 7 up to, and including, line 10,</strong><br />
 <strong>and the lines after line 21 up to, and including, line 24.</strong></p>
-<pre><code>...
+<pre><code>…
 line 8
 line 9
 line 10
-...
+…
 line 22
 line 23
 line 24
-...</code></pre>
+…</code></pre>
 <p><strong>All lines after line 26.</strong></p>
-<pre><code>...
+<pre><code>…
 line 27
 line 28
 line 29
-line 30</code></pre>
+line 30
+</code></pre>
 <p><strong>All lines before, and including, line 4.</strong></p>
 <pre><code>line 1
 line 2
 line 3
 line 4
-...</code></pre>
+…</code></pre>
 <h3 id="including-line-numbers">Including line numbers</h3>
 <strong>The lines after line 7 up to, and including, line 10,</strong><br />
 <strong>and the lines after line 21 up to, and including, line 24.</strong>
 <div class="code">
 <table>
 <tbody>
-<tr class="odd">
-<td></td>
-<td>…</td>
+<tr>
+<td>
+</td>
+<td>
+<pre  ><code >…</code></pre>
+</td>
 </tr>
 <tr class="even">
-<td><span class="ln">8</span></td>
-<td>line 8</td>
+<td>
+<a class="sourceLine" id="cb2p-8" href="#cb2p-8" title="8">8</a>
+</td>
+<td>
+<pre  ><code >line 8  </code></pre>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="ln">9</span></td>
-<td>line 9</td>
-</tr>
-<tr class="even">
-<td><span class="ln">10</span></td>
-<td>line 10</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>…</td>
-</tr>
-<tr class="even">
-<td><span class="ln">22</span></td>
-<td>line 22</td>
-</tr>
-<tr class="odd">
-<td><span class="ln">23</span></td>
-<td>line 23</td>
+<tr>
+<td>
+<a class="sourceLine" id="cb2p-9" href="#cb2p-9" title="9">9</a>
+</td>
+<td>
+<pre  ><code >line 9  </code></pre>
+</td>
 </tr>
 <tr class="even">
-<td><span class="ln">24</span></td>
-<td>line 24</td>
+<td>
+<a class="sourceLine" id="cb2p-10" href="#cb2p-10" title="10">10</a>
+</td>
+<td>
+<pre  ><code >line 10</code></pre>
+</td>
 </tr>
-<tr class="odd">
-<td></td>
-<td>…</td>
+<tr>
+<td>
+</td>
+<td>
+<pre  ><code >…</code></pre>
+</td>
+</tr>
+<tr class="even">
+<td>
+<a class="sourceLine" id="cb2p-22" href="#cb2p-22" title="22">22</a>
+</td>
+<td>
+<pre  ><code >line 22  </code></pre>
+</td>
+</tr>
+<tr>
+<td>
+<a class="sourceLine" id="cb2p-23" href="#cb2p-23" title="23">23</a>
+</td>
+<td>
+<pre  ><code >line 23  </code></pre>
+</td>
+</tr>
+<tr class="even">
+<td>
+<a class="sourceLine" id="cb2p-24" href="#cb2p-24" title="24">24</a>
+</td>
+<td>
+<pre  ><code >line 24  </code></pre>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<pre  ><code >…</code></pre>
+</td>
 </tr>
 </tbody>
 </table>
@@ -427,29 +485,44 @@ line 4
 <div class="code">
 <table>
 <tbody>
-<tr class="odd">
-<td></td>
-<td>…</td>
+<tr>
+<td>
+</td>
+<td>
+<pre  ><code >…</code></pre>
+</td>
 </tr>
 <tr class="even">
-<td><span class="ln">27</span></td>
-<td>line 27</td>
+<td>
+<a class="sourceLine" id="cb3p-27" href="#cb3p-27" title="27">27</a>
+</td>
+<td>
+<pre  ><code >line 27  </code></pre>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="ln">28</span></td>
-<td>line 28</td>
+<tr>
+<td>
+<a class="sourceLine" id="cb3p-28" href="#cb3p-28" title="28">28</a>
+</td>
+<td>
+<pre  ><code >line 28  </code></pre>
+</td>
 </tr>
 <tr class="even">
-<td><span class="ln">29</span></td>
-<td>line 29</td>
+<td>
+<a class="sourceLine" id="cb3p-29" href="#cb3p-29" title="29">29</a>
+</td>
+<td>
+<pre  ><code >line 29  </code></pre>
+</td>
 </tr>
-<tr class="odd">
-<td><span class="ln">30</span></td>
-<td>line 30</td>
-</tr>
-<tr class="even">
-<td><span class="ln">31</span></td>
-<td></td>
+<tr>
+<td>
+<a class="sourceLine" id="cb3p-30" href="#cb3p-30" title="30">30</a>
+</td>
+<td>
+<pre  ><code >line 30</code></pre>
+</td>
 </tr>
 </tbody>
 </table>
@@ -458,25 +531,66 @@ line 4
 <div class="code">
 <table>
 <tbody>
-<tr class="odd">
-<td style="text-align: right;"><span class="ln">1</span></td>
-<td>line 1</td>
+<tr>
+<td>
+<a class="sourceLine" id="cb4p-1" href="#cb4p-1" title="1">1</a>
+</td>
+<td>
+<pre  ><code >line 1  </code></pre>
+</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><span class="ln">2</span></td>
-<td>line 2</td>
+<td>
+<a class="sourceLine" id="cb4p-2" href="#cb4p-2" title="2">2</a>
+</td>
+<td>
+<pre  ><code >line 2  </code></pre>
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: right;"><span class="ln">3</span></td>
-<td>line 3</td>
+<tr>
+<td>
+<a class="sourceLine" id="cb4p-3" href="#cb4p-3" title="3">3</a>
+</td>
+<td>
+<pre  ><code >line 3  </code></pre>
+</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><span class="ln">4</span></td>
-<td>line 4</td>
+<td>
+<a class="sourceLine" id="cb4p-4" href="#cb4p-4" title="4">4</a>
+</td>
+<td>
+<pre  ><code >line 4  </code></pre>
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>…</td>
+<tr>
+<td>
+</td>
+<td>
+<pre  ><code >…</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<strong>With syntax highlighting</strong>
+<div class="code">
+<table>
+<tbody>
+<tr>
+<td>
+</td>
+<td>
+<pre  class="python"><code class="python">…</code></pre>
+</td>
+</tr>
+<tr class="even">
+<td>
+<a class="sourceLine" id="cb1p-3" href="#cb1p-3" title="3">3</a>
+</td>
+<td>
+<pre  class="python"><code class="python"><span class="bu">print</span>(<span class="st">&#39;Python example&#39;</span>)</code></pre>
+</td>
 </tr>
 </tbody>
 </table>

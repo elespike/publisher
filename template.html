@@ -66,9 +66,15 @@ $endif$
     div.code {
         font-family: "Lucida Console", Monaco, monospace;
     }
+
     div.code > table {
         width: 100%;
     }
+
+    div.code > table > tbody > tr:hover {
+        background: rgba(103, 73, 112, 0.2);
+    }
+
     div.code > table > tbody > tr > td {
         border: 0px;
     }
@@ -76,20 +82,31 @@ $endif$
         border-right: 2px solid rgb(255, 205, 0);
         color: darkgoldenrod;
         text-align: right;
+        user-select: none;
         width: 30px;
     }
+
+    div.code > table > tbody > tr:hover > td:nth-child(1) {
+        text-decoration: underline;
+    }
+
     div.code > table > tbody > tr > td > pre {
-        background: rgba(0, 0, 0, 0);
+        background: rgba(255, 205, 0, 0);
         border: 0px;
         margin: 0px;
         padding: 0px;
     }
 
+    div.code > table > tbody > tr > td > a.sourceLine {
+        display: block;
+        pointer-events: auto;
+    }
+
     pre > code {
-        background: rgba(0, 0, 0, 0);
+        background: rgba(255, 205, 0, 0);
         padding: 0;
         white-space: pre-wrap !important;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     table {

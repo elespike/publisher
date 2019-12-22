@@ -110,6 +110,9 @@ _Handwriting_, by Andrew Allingham, sourced from [https://www.flickr.com/photos/
 **All lines before, and including, line 4.**
 <+[example.md|#,:4]+>
 
+**With syntax highlighting**
+<+[scripts/example.py|#python,2:]+>
+
 <!-- Take up all remaining space in this page and start the next section in a new page -->
 <div class="full-page"></div>
 
