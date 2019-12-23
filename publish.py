@@ -138,8 +138,8 @@ for fpath, slices_list in fpaths_slices.items():
                 fpaths__hl_lines[fpath] = hl_lines
 
             hl_lines = sub(
-                '(<a class="sourceLine" id="cb)1(-\d{1,3})(" href="#cb)1(-\d{1,3}")',
-                F'\\g<1>{cb_num}p\\g<2>\\g<3>{cb_num}p\\g<4>',
+                '(<a class="sourceLine" id="c)b1(-\d{1,3})(" href="#c)b1(-\d{1,3}")',
+                F'\\g<1>t{cb_num}\\g<2>\\g<3>t{cb_num}\\g<4>',
                 hl_lines
             )
             cb_num += 1
